@@ -4,7 +4,6 @@ package gocloudcix
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"net/http"
 	"net/url"
@@ -738,7 +737,7 @@ func (r NetworkVpnUpdateParams) MarshalJSON() (data []byte, err error) {
 	return shimjson.Marshal(r.NetworkVpnUpdate)
 }
 func (r *NetworkVpnUpdateParams) UnmarshalJSON(data []byte) error {
-	return json.Unmarshal(data, &r.NetworkVpnUpdate)
+	return apijson.UnmarshalRoot(data, r)
 }
 
 type NetworkVpnListParams struct {

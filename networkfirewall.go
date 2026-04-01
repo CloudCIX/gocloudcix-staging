@@ -4,7 +4,6 @@ package gocloudcix
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"net/http"
 	"net/url"
@@ -559,7 +558,7 @@ func (r NetworkFirewallUpdateParams) MarshalJSON() (data []byte, err error) {
 	return shimjson.Marshal(r.NetworkFirewallUpdate)
 }
 func (r *NetworkFirewallUpdateParams) UnmarshalJSON(data []byte) error {
-	return json.Unmarshal(data, &r.NetworkFirewallUpdate)
+	return apijson.UnmarshalRoot(data, r)
 }
 
 type NetworkFirewallListParams struct {

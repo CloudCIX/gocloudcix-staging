@@ -4,7 +4,6 @@ package gocloudcix
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"net/http"
 	"net/url"
@@ -292,7 +291,7 @@ func (r ComputeGPUUpdateParams) MarshalJSON() (data []byte, err error) {
 	return shimjson.Marshal(r.ComputeGPUUpdate)
 }
 func (r *ComputeGPUUpdateParams) UnmarshalJSON(data []byte) error {
-	return json.Unmarshal(data, &r.ComputeGPUUpdate)
+	return apijson.UnmarshalRoot(data, r)
 }
 
 type ComputeGPUListParams struct {
