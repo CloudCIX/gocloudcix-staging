@@ -4,7 +4,6 @@ package gocloudcix
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"net/http"
 	"net/url"
@@ -277,7 +276,7 @@ func (r ProjectUpdateParams) MarshalJSON() (data []byte, err error) {
 	return shimjson.Marshal(r.ProjectUpdate)
 }
 func (r *ProjectUpdateParams) UnmarshalJSON(data []byte) error {
-	return json.Unmarshal(data, &r.ProjectUpdate)
+	return apijson.UnmarshalRoot(data, r)
 }
 
 type ProjectListParams struct {

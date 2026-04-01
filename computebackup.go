@@ -4,7 +4,6 @@ package gocloudcix
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"net/http"
 	"net/url"
@@ -354,7 +353,7 @@ func (r ComputeBackupUpdateParams) MarshalJSON() (data []byte, err error) {
 	return shimjson.Marshal(r.ComputeBackupUpdate)
 }
 func (r *ComputeBackupUpdateParams) UnmarshalJSON(data []byte) error {
-	return json.Unmarshal(data, &r.ComputeBackupUpdate)
+	return apijson.UnmarshalRoot(data, r)
 }
 
 type ComputeBackupListParams struct {

@@ -4,7 +4,6 @@ package gocloudcix
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"net/http"
 	"net/url"
@@ -448,7 +447,7 @@ func (r StorageVolumeUpdateParams) MarshalJSON() (data []byte, err error) {
 	return shimjson.Marshal(r.StorageVolumesUpdate)
 }
 func (r *StorageVolumeUpdateParams) UnmarshalJSON(data []byte) error {
-	return json.Unmarshal(data, &r.StorageVolumesUpdate)
+	return apijson.UnmarshalRoot(data, r)
 }
 
 type StorageVolumeListParams struct {
