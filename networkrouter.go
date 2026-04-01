@@ -4,7 +4,6 @@ package gocloudcix
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"net/http"
 	"net/url"
@@ -590,7 +589,7 @@ func (r NetworkRouterUpdateParams) MarshalJSON() (data []byte, err error) {
 	return shimjson.Marshal(r.NetworkRouterUpdate)
 }
 func (r *NetworkRouterUpdateParams) UnmarshalJSON(data []byte) error {
-	return json.Unmarshal(data, &r.NetworkRouterUpdate)
+	return apijson.UnmarshalRoot(data, r)
 }
 
 type NetworkRouterListParams struct {
