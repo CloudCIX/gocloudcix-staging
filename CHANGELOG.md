@@ -1,5 +1,31 @@
 # Changelog
 
+## 0.7.0 (2026-04-01)
+
+Full Changelog: [v0.6.4...v0.7.0](https://github.com/CloudCIX/gocloudcix/compare/v0.6.4...v0.7.0)
+
+### Features
+
+* **internal:** support comma format in multipart form encoding ([ad102c3](https://github.com/CloudCIX/gocloudcix/commit/ad102c3290153625e5121dc94f24f40318935833))
+
+
+### Bug Fixes
+
+* fix issue with unmarshaling in some cases ([1a8191d](https://github.com/CloudCIX/gocloudcix/commit/1a8191d0aea5ca8586614a0caa78228c2405dc3e))
+* prevent duplicate ? in query params ([06bfce6](https://github.com/CloudCIX/gocloudcix/commit/06bfce6828e49a2b18577816128a1b709d2c23f6))
+
+
+### Chores
+
+* **ci:** skip lint on metadata-only changes ([ba07b7c](https://github.com/CloudCIX/gocloudcix/commit/ba07b7c58eb4116c88942d344866d407adde9138))
+* **ci:** support opting out of skipping builds on metadata-only commits ([3d7ef64](https://github.com/CloudCIX/gocloudcix/commit/3d7ef64b996200282be17f683a4aaa64117d8e52))
+* **client:** fix multipart serialisation of Default() fields ([a056ef9](https://github.com/CloudCIX/gocloudcix/commit/a056ef973ce34f3fdb6cdf67a7e5dabc0ec170fb))
+* **internal:** support default value struct tag ([825224a](https://github.com/CloudCIX/gocloudcix/commit/825224afeb2e5da6a7597ac57e28b61a1bf5f471))
+* **internal:** tweak CI branches ([087ff74](https://github.com/CloudCIX/gocloudcix/commit/087ff74d277d7ed94029f352dfbd444ed3ea7f42))
+* **internal:** update gitignore ([3a81868](https://github.com/CloudCIX/gocloudcix/commit/3a81868d4b4be7c6b91a708959798966532a9efc))
+* remove unnecessary error check for url parsing ([4c06b50](https://github.com/CloudCIX/gocloudcix/commit/4c06b50afdae0d0f3ee21f7992ccbc2cf3508d60))
+* update docs for api:"required" ([238980e](https://github.com/CloudCIX/gocloudcix/commit/238980e9b342b0ac98361a33e09238d13dc6cdea))
+
 ## 0.6.4 (2026-03-11)
 
 Full Changelog: [v0.6.3...v0.6.4](https://github.com/CloudCIX/gocloudcix/compare/v0.6.3...v0.6.4)
