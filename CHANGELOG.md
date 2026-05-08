@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.8.0 (2026-05-08)
+
+Full Changelog: [v0.7.0...v0.8.0](https://github.com/CloudCIX/gocloudcix/compare/v0.7.0...v0.8.0)
+
+### Features
+
+* **go:** add default http client with timeout ([5b9a9da](https://github.com/CloudCIX/gocloudcix/commit/5b9a9da9d9be3192a2d9e0bfece3e9e07bfafce6))
+* support setting headers via env ([3db2de1](https://github.com/CloudCIX/gocloudcix/commit/3db2de17d6873582c11f9e5b3179aa708336392d))
+
+
+### Bug Fixes
+
+* **go:** avoid panic when http.DefaultTransport is wrapped ([eba5590](https://github.com/CloudCIX/gocloudcix/commit/eba559036a37e83790bcd3573753b9b569d1012b))
+
+
+### Chores
+
+* avoid embedding reflect.Type for dead code elimination ([12b896a](https://github.com/CloudCIX/gocloudcix/commit/12b896a24dd2360bef2fc6e6eed3267239028045))
+* **internal:** more robust bootstrap script ([73d1799](https://github.com/CloudCIX/gocloudcix/commit/73d17990aa592b87d1f377786681f7155b15cb86))
+* redact api-key headers in debug logs ([a143c3a](https://github.com/CloudCIX/gocloudcix/commit/a143c3a50fc95f29b12e67dd01cad7be89ec8c0d))
+
 ## 0.7.0 (2026-04-01)
 
 Full Changelog: [v0.6.4...v0.7.0](https://github.com/CloudCIX/gocloudcix/compare/v0.6.4...v0.7.0)
