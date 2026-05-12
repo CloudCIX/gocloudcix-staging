@@ -138,6 +138,17 @@ func (r *ProjectService) List(ctx context.Context, query ProjectListParams, opts
 	return res, err
 }
 
+// Delete a project. Any resources in the project that are not already in a scrub
+// state will be queued for deletion. If all resources are already closed, the
+// project will be soft-deleted immediately.
+func (r *ProjectService) Delete(ctx context.Context, id int64, opts ...option.RequestOption) (err error) {
+	opts = slices.Concat(r.Options, opts)
+	opts = append([]option.RequestOption{option.WithHeader("Accept", "*/*")}, opts...)
+	path := fmt.Sprintf("project/%v/", id)
+	err = requestconfig.ExecuteNewRequest(ctx, http.MethodDelete, path, nil, nil, opts...)
+	return err
+}
+
 type Project struct {
 	// The ID of the Project.
 	ID int64 `json:"id" api:"required"`
