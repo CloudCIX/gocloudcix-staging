@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.0 (2026-05-12)
+
+Full Changelog: [v0.8.0...v0.9.0](https://github.com/CloudCIX/gocloudcix/compare/v0.8.0...v0.9.0)
+
+### Features
+
+* **api:** manual update to compute 5.0.4 ([e6596ca](https://github.com/CloudCIX/gocloudcix/commit/e6596ca04c78077e6daf76af4f36560e367dc8ab))
+
 ## 0.8.0 (2026-05-08)
 
 Full Changelog: [v0.7.0...v0.8.0](https://github.com/CloudCIX/gocloudcix/compare/v0.7.0...v0.8.0)

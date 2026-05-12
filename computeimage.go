@@ -72,6 +72,7 @@ func (r *ComputeImageService) Get(ctx context.Context, id int64, opts ...option.
 // The following fields and modifiers can be used to filter records from the list;
 //
 // - id (gt, gte, in, isnull, lt, lte, range)
+// - member_id (gt, gte, in, isnull, lt, lte, range)
 // - os_variant (in, icontains, iendswith, iexact, istartswith)
 // - region_id (gt, gte, in, isnull, lt, lte, range)
 // - sku_name (in, icontains, iendswith, iexact, istartswith)
@@ -105,13 +106,16 @@ type ComputeImage struct {
 	Filename string `json:"filename" api:"required"`
 	// Is a unique word to define each Image.
 	OsVariant string `json:"os_variant" api:"required"`
-	// The name of the Image.
+	// The protocl for images supported by LXD Hypervisor device types.
+	Protocol string `json:"protocol" api:"required"`
+	// The SKU for the Image.
 	SKUName string `json:"sku_name" api:"required"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
 		ID          respjson.Field
 		Filename    respjson.Field
 		OsVariant   respjson.Field
+		Protocol    respjson.Field
 		SKUName     respjson.Field
 		ExtraFields map[string]respjson.Field
 		raw         string
@@ -177,10 +181,10 @@ type ComputeImageListParams struct {
 	Page param.Opt[int64] `query:"page,omitzero" json:"-"`
 	// Filter the result to objects that do not match the specified filters. Possible
 	// filters are outlined in the individual list method descriptions.
-	Exclude any `query:"exclude,omitzero" json:"-"`
+	Exclude map[string]any `query:"exclude,omitzero" json:"-"`
 	// Filter the result to objects that match the specified filters. Possible filters
 	// are outlined in the individual list method descriptions.
-	Search any `query:"search,omitzero" json:"-"`
+	Search map[string]any `query:"search,omitzero" json:"-"`
 	paramObj
 }
 

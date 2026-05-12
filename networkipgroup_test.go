@@ -27,9 +27,10 @@ func TestNetworkIPGroupNewWithOptionalParams(t *testing.T) {
 		option.WithAPIKey("My API Key"),
 	)
 	_, err := client.Network.IPGroups.New(context.TODO(), gocloudcix.NetworkIPGroupNewParams{
-		Cidrs:   []string{"91.103.3.0/24", "90.103.2.36", "185.94.188.0/24"},
-		Name:    "office-networks",
-		Version: gocloudcix.Int(4),
+		Cidrs:       []string{"91.103.3.0/24", "90.103.2.36", "185.94.188.0/24"},
+		Name:        "office-networks",
+		Description: gocloudcix.String("description"),
+		Version:     gocloudcix.Int(4),
 	})
 	if err != nil {
 		var apierr *gocloudcix.Error
@@ -81,9 +82,10 @@ func TestNetworkIPGroupUpdateWithOptionalParams(t *testing.T) {
 		0,
 		gocloudcix.NetworkIPGroupUpdateParams{
 			NetworkIPGroupUpdate: gocloudcix.NetworkIPGroupUpdateParam{
-				Cidrs:   []string{"91.103.3.0/24", "90.103.2.36", "185.94.188.0/24"},
-				Name:    "office-networks",
-				Version: gocloudcix.Int(4),
+				Cidrs:       []string{"91.103.3.0/24", "90.103.2.36", "185.94.188.0/24"},
+				Name:        "office-networks",
+				Description: gocloudcix.String("description"),
+				Version:     gocloudcix.Int(4),
 			},
 		},
 	)
@@ -110,11 +112,15 @@ func TestNetworkIPGroupListWithOptionalParams(t *testing.T) {
 		option.WithAPIKey("My API Key"),
 	)
 	_, err := client.Network.IPGroups.List(context.TODO(), gocloudcix.NetworkIPGroupListParams{
-		Exclude: map[string]any{},
-		Limit:   gocloudcix.Int(0),
-		Order:   gocloudcix.String("order"),
-		Page:    gocloudcix.Int(0),
-		Search:  map[string]any{},
+		Exclude: map[string]any{
+			"foo": "bar",
+		},
+		Limit: gocloudcix.Int(0),
+		Order: gocloudcix.String("order"),
+		Page:  gocloudcix.Int(0),
+		Search: map[string]any{
+			"foo": "bar",
+		},
 	})
 	if err != nil {
 		var apierr *gocloudcix.Error

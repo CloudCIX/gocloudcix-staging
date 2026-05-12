@@ -360,10 +360,10 @@ type ComputeSnapshotListParams struct {
 	Page param.Opt[int64] `query:"page,omitzero" json:"-"`
 	// Filter the result to objects that do not match the specified filters. Possible
 	// filters are outlined in the individual list method descriptions.
-	Exclude any `query:"exclude,omitzero" json:"-"`
+	Exclude map[string]any `query:"exclude,omitzero" json:"-"`
 	// Filter the result to objects that match the specified filters. Possible filters
 	// are outlined in the individual list method descriptions.
-	Search any `query:"search,omitzero" json:"-"`
+	Search map[string]any `query:"search,omitzero" json:"-"`
 	paramObj
 }
 

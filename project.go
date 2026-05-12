@@ -106,8 +106,6 @@ func (r *ProjectService) Update(ctx context.Context, id int64, body ProjectUpdat
 // The following fields and modifiers can be used to filter records from the list;
 //
 // - address_id (gt, gte, in, isnull, lt, lte, range)
-// - all_projects
-// - archived (gt, gte, in, isnull, lt, lte, range)
 // - created (gt, gte, in, isnull, lt, lte, range)
 // - id (gt, gte, in, isnull, lt, lte, range)
 // - manager_id (gt, gte, in, isnull, lt, lte, range)
@@ -289,10 +287,10 @@ type ProjectListParams struct {
 	Page param.Opt[int64] `query:"page,omitzero" json:"-"`
 	// Filter the result to objects that do not match the specified filters. Possible
 	// filters are outlined in the individual list method descriptions.
-	Exclude any `query:"exclude,omitzero" json:"-"`
+	Exclude map[string]any `query:"exclude,omitzero" json:"-"`
 	// Filter the result to objects that match the specified filters. Possible filters
 	// are outlined in the individual list method descriptions.
-	Search any `query:"search,omitzero" json:"-"`
+	Search map[string]any `query:"search,omitzero" json:"-"`
 	paramObj
 }
 

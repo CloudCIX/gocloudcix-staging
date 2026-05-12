@@ -396,9 +396,6 @@ type NetworkRouterUpdateParam struct {
 	// Note: To delete a router, all other resources in the project must first be in
 	// one of these states: delete, delete_queue, or deleting.
 	State string `json:"state" api:"required"`
-	// The user-friendly name for the Network Router. If not sent, it will default to
-	// current name.
-	Name param.Opt[string] `json:"name,omitzero"`
 	// Metadata for the Netork Routers of the type "static_route".
 	Metadata NetworkRouterUpdateMetadataParam `json:"metadata,omitzero"`
 	// Networks for the Netork Routers of the type "router".
@@ -493,10 +490,6 @@ func (r *NetworkRouterListResponse) UnmarshalJSON(data []byte) error {
 type NetworkRouterNewParams struct {
 	// The ID of the User's Project into which this Network Router should be added.
 	ProjectID int64 `json:"project_id" api:"required"`
-	// The user-friendly name for the Network Router. If not sent and the type is
-	// "router", it will default to the name 'Router'. If not sent and the type is
-	// "static_route", it will default to the name 'Static Route'.
-	Name param.Opt[string] `json:"name,omitzero"`
 	// The type of Network Router to create. Valid options are:
 	//
 	//   - "router" A virtual route that manages IP forwarding, and participate in
@@ -602,10 +595,10 @@ type NetworkRouterListParams struct {
 	Page param.Opt[int64] `query:"page,omitzero" json:"-"`
 	// Filter the result to objects that do not match the specified filters. Possible
 	// filters are outlined in the individual list method descriptions.
-	Exclude any `query:"exclude,omitzero" json:"-"`
+	Exclude map[string]any `query:"exclude,omitzero" json:"-"`
 	// Filter the result to objects that match the specified filters. Possible filters
 	// are outlined in the individual list method descriptions.
-	Search any `query:"search,omitzero" json:"-"`
+	Search map[string]any `query:"search,omitzero" json:"-"`
 	paramObj
 }
 

@@ -305,9 +305,6 @@ type NetworkFirewallUpdateParam struct {
 	//
 	// - running -> update_running or delete
 	State string `json:"state" api:"required"`
-	// The user-friendly name for the Network Firewall type. If not sent, it will
-	// default to current name.
-	Name param.Opt[string] `json:"name,omitzero"`
 	// CRITICAL WARNING: This completely replaces ALL existing firewall rules. Any
 	// rules not included in this update will be permanently deleted. You must include
 	// the complete list of all rules you want to keep, both existing and new ones.
@@ -396,7 +393,7 @@ type NetworkFirewallUpdateRuleParam struct {
 	//   - `Private`: Represents connections between the CloudCIX Project networks.
 	//   - `VPNS2S`: Represents connections between the CloudCIX Project Networks and the
 	//     Customers' on-premises network.
-	Zone any `json:"zone,omitzero"`
+	Zone param.Opt[string] `json:"zone,omitzero"`
 	paramObj
 }
 
@@ -439,10 +436,6 @@ type NetworkFirewallNewParams struct {
 	// The ID of the Project which this Network Firewall should be created in. Each
 	// project can have exactly ONE project firewall and ONE geo firewall maximum.
 	ProjectID int64 `json:"project_id" api:"required"`
-	// The user-friendly name for the Network Firewall type. If not sent and the type
-	// is "geo", it will default to the name 'Geofilter'. If not sent and the type is
-	// "project", it will default to the name 'Firewall'.
-	Name param.Opt[string] `json:"name,omitzero"`
 	// The type of Network Firewall to create. Each project can have exactly ONE of
 	// each type. Valid options are:
 	//
@@ -571,10 +564,10 @@ type NetworkFirewallListParams struct {
 	Page param.Opt[int64] `query:"page,omitzero" json:"-"`
 	// Filter the result to objects that do not match the specified filters. Possible
 	// filters are outlined in the individual list method descriptions.
-	Exclude any `query:"exclude,omitzero" json:"-"`
+	Exclude map[string]any `query:"exclude,omitzero" json:"-"`
 	// Filter the result to objects that match the specified filters. Possible filters
 	// are outlined in the individual list method descriptions.
-	Search any `query:"search,omitzero" json:"-"`
+	Search map[string]any `query:"search,omitzero" json:"-"`
 	paramObj
 }
 
