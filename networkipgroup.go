@@ -123,6 +123,7 @@ func (r *NetworkIPGroupService) Update(ctx context.Context, id int64, body Netwo
 // The following fields and modifiers can be used to filter records from the list;
 //
 // - created (gt, gte, in, isnull, lt, lte, range)
+// - description (in, icontains, iendswith, iexact, istartswith)
 // - id (gt, gte, in, isnull, lt, lte, range)
 // - name (in, icontains, iendswith, iexact, istartswith)
 // - type
@@ -228,6 +229,8 @@ type NetworkIPGroupUpdateParam struct {
 	// when creating firewall rules or geo-filters. Must start with a letter and
 	// contain only letters, numbers, underscores, and hyphens.
 	Name string `json:"name" api:"required"`
+	// An optional description for the IP Address Group.
+	Description param.Opt[string] `json:"description,omitzero"`
 	// The IP version of the IP Address Group Objects in the IP Address Group. Accepted
 	// versions are 4 and 6. If not sent, it will default to 4.
 	Version param.Opt[int64] `json:"version,omitzero"`
@@ -279,6 +282,8 @@ type NetworkIPGroupNewParams struct {
 	// when creating firewall rules or geo-filters. Must start with a letter and
 	// contain only letters, numbers, underscores, and hyphens.
 	Name string `json:"name" api:"required"`
+	// An optional description for the IP Address Group.
+	Description param.Opt[string] `json:"description,omitzero"`
 	// The IP version of the IP Address Group Objects in the IP Address Group. Accepted
 	// versions are 4 and 6. If not sent, it will default to 4.
 	Version param.Opt[int64] `json:"version,omitzero"`
@@ -315,10 +320,10 @@ type NetworkIPGroupListParams struct {
 	Page param.Opt[int64] `query:"page,omitzero" json:"-"`
 	// Filter the result to objects that do not match the specified filters. Possible
 	// filters are outlined in the individual list method descriptions.
-	Exclude any `query:"exclude,omitzero" json:"-"`
+	Exclude map[string]any `query:"exclude,omitzero" json:"-"`
 	// Filter the result to objects that match the specified filters. Possible filters
 	// are outlined in the individual list method descriptions.
-	Search any `query:"search,omitzero" json:"-"`
+	Search map[string]any `query:"search,omitzero" json:"-"`
 	paramObj
 }
 

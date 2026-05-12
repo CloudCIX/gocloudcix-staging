@@ -33,7 +33,6 @@ func TestNetworkRouterNewWithOptionalParams(t *testing.T) {
 			Nat:         gocloudcix.Bool(true),
 			Nexthop:     gocloudcix.String("nexthop"),
 		},
-		Name: gocloudcix.String("Public Website Router"),
 		Networks: []gocloudcix.NetworkRouterNewParamsNetwork{{
 			Ipv4: gocloudcix.String("10.0.1.0/24"),
 			Ipv6: gocloudcix.String("ipv6"),
@@ -108,7 +107,6 @@ func TestNetworkRouterUpdateWithOptionalParams(t *testing.T) {
 					Nat:         gocloudcix.Bool(true),
 					Nexthop:     gocloudcix.String("nexthop"),
 				},
-				Name: gocloudcix.String("name"),
 				Networks: []gocloudcix.NetworkRouterUpdateNetworkParam{{
 					Ipv4: gocloudcix.String("10.0.1.0/24"),
 					Ipv6: gocloudcix.String("fd00::/64"),
@@ -146,11 +144,15 @@ func TestNetworkRouterListWithOptionalParams(t *testing.T) {
 		option.WithAPIKey("My API Key"),
 	)
 	_, err := client.Network.Routers.List(context.TODO(), gocloudcix.NetworkRouterListParams{
-		Exclude: map[string]any{},
-		Limit:   gocloudcix.Int(0),
-		Order:   gocloudcix.String("order"),
-		Page:    gocloudcix.Int(0),
-		Search:  map[string]any{},
+		Exclude: map[string]any{
+			"foo": "bar",
+		},
+		Limit: gocloudcix.Int(0),
+		Order: gocloudcix.String("order"),
+		Page:  gocloudcix.Int(0),
+		Search: map[string]any{
+			"foo": "bar",
+		},
 	})
 	if err != nil {
 		var apierr *gocloudcix.Error

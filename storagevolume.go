@@ -22,18 +22,20 @@ import (
 //
 // Storage volumes provide additional storage capacity for compute instances.
 //
-// Two types are supported:
+// Three types are supported:
 //
 //   - CephFS: Network-attached file system volumes that can be mounted to multiple
 //     LXD instances
+//   - CephRBD: Block Storage volume that can be mounted to a virtual-machine LXD
+//     instance.
 //   - HyperV: Secondary drives attached to Hyper-V instances
 //
 // SKU Configuration: Storage capacity is specified using SKUs (Stock Keeping
 // Units) with quantity in GB.
 //
 //   - Ceph volumes use Ceph storage SKUs (CEPH_001 for HDD, CEPH_002 for SSD)
-//   - Hyper-V volumes use storage SKUs (e.g., SSD_001, HDD_001) Available SKUs
-//     depend on your region's configured devices.
+//   - HyperV volumes use storage SKUs (e.g., SSD_001, HDD_001) Available SKUs depend
+//     on your region's configured devices.
 //
 // StorageVolumeService contains methods and other services that help with
 // interacting with the gocloudcix API.
@@ -54,10 +56,11 @@ func NewStorageVolumeService(opts ...option.RequestOption) (r StorageVolumeServi
 	return
 }
 
-// Create a new storage volume in a project. Specify volume type (Ceph or Hyper-V),
-// storage capacity using SKUs, and configuration options. Ceph volumes can be
-// mounted to multiple LXD instances. Hyper-V volumes are attached as secondary
-// drives to Hyper-V instances.
+// Create a new storage volume in a project. Specify volume type (CephFS, CephRBD
+// or HyperV), storage capacity using SKUs, and configuration options. CephFS
+// volumes can be mounted to multiple LXD instances. CephRBD volumes can be mounted
+// to only one LXD virtual-machine instance. HyperV volumes are attached as
+// secondary drives to a Hyper-V instance.
 func (r *StorageVolumeService) New(ctx context.Context, body StorageVolumeNewParams, opts ...option.RequestOption) (res *StorageVolumes, err error) {
 	var env StorageVolumesResponse
 	opts = slices.Concat(r.Options, opts)
@@ -115,6 +118,7 @@ func (r *StorageVolumeService) Update(ctx context.Context, id int64, body Storag
 // - project\_\_name (in, icontains, iendswith, iexact, istartswith)
 // - project\_\_region_id (gt, gte, in, isnull, lt, lte, range)
 // - project\_\_reseller_id (gt, gte, in, isnull, lt, lte, range)
+// - resource_type_id (gt, gte, in, isnull, lt, lte, range)
 // - state (gt, gte, in, isnull, lt, lte, range)
 // - type
 // - updated (gt, gte, in, isnull, lt, lte, range)
@@ -408,6 +412,8 @@ type StorageVolumeNewParams struct {
 	//
 	//   - "cephfs" A Ceph file system volume which can be mounted to one or more Compute
 	//     Instances of the type "lxd"
+	//   - "cephrbd" A Ceph block volume which can be mounted to one Compute Instances of
+	//     the type "lxd" that is the instance type "virtual-machine"
 	//   - "hyperv" A volume which can be mounted as a secondary drive to a Compute
 	//     Instance of the type "hyperv"
 	Type param.Opt[string] `json:"type,omitzero"`
@@ -460,10 +466,10 @@ type StorageVolumeListParams struct {
 	Page param.Opt[int64] `query:"page,omitzero" json:"-"`
 	// Filter the result to objects that do not match the specified filters. Possible
 	// filters are outlined in the individual list method descriptions.
-	Exclude any `query:"exclude,omitzero" json:"-"`
+	Exclude map[string]any `query:"exclude,omitzero" json:"-"`
 	// Filter the result to objects that match the specified filters. Possible filters
 	// are outlined in the individual list method descriptions.
-	Search any `query:"search,omitzero" json:"-"`
+	Search map[string]any `query:"search,omitzero" json:"-"`
 	paramObj
 }
 
