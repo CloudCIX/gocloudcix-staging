@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.10.1 (2026-05-13)
+
+Full Changelog: [v0.10.0...v0.10.1](https://github.com/CloudCIX/gocloudcix/compare/v0.10.0...v0.10.1)
+
 ## 0.10.0 (2026-05-12)
 
 Full Changelog: [v0.9.0...v0.10.0](https://github.com/CloudCIX/gocloudcix/compare/v0.9.0...v0.10.0)
