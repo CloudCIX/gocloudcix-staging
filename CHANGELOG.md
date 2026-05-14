@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.11.0 (2026-05-14)
+
+Full Changelog: [v0.10.1...v0.11.0](https://github.com/CloudCIX/gocloudcix/compare/v0.10.1...v0.11.0)
+
+### Features
+
+* **client:** optimize json encoder for internal types ([bb677c7](https://github.com/CloudCIX/gocloudcix/commit/bb677c78a7fba02f58d4153315f42fb0b2cdced3))
+
 ## 0.10.1 (2026-05-13)
 
 Full Changelog: [v0.10.0...v0.10.1](https://github.com/CloudCIX/gocloudcix/compare/v0.10.0...v0.10.1)
