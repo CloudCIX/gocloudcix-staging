@@ -102,19 +102,19 @@ type SSHKey struct {
 	Created string `json:"created" api:"required"`
 	// The user-friendly name for the SSH Key.
 	Name string `json:"name" api:"required"`
+	// The SSH public key string.
+	PublicKey string `json:"public_key" api:"required"`
 	// The PEM-encoded Ed25519 private key. Only present in the create (POST) response
 	// when no public_key was supplied and the key pair was auto-generated. Not stored
 	// by the API — save it immediately.
-	PrivateKey string `json:"private_key" api:"required"`
-	// The SSH public key string.
-	PublicKey string `json:"public_key" api:"required"`
+	PrivateKey string `json:"private_key"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
 		ID          respjson.Field
 		Created     respjson.Field
 		Name        respjson.Field
-		PrivateKey  respjson.Field
 		PublicKey   respjson.Field
+		PrivateKey  respjson.Field
 		ExtraFields map[string]respjson.Field
 		raw         string
 	} `json:"-"`
