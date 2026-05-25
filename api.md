@@ -94,6 +94,21 @@ Methods:
 - <code title="get /compute/snapshots/">client.Compute.Snapshots.<a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix#ComputeSnapshotService.List">List</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, query <a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix">gocloudcix</a>.<a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix#ComputeSnapshotListParams">ComputeSnapshotListParams</a>) (\*<a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix">gocloudcix</a>.<a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix#ComputeSnapshotListResponse">ComputeSnapshotListResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 - <code title="delete /compute/snapshots/{id}/">client.Compute.Snapshots.<a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix#ComputeSnapshotService.Delete">Delete</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, id <a href="https://pkg.go.dev/builtin#int64">int64</a>) <a href="https://pkg.go.dev/builtin#error">error</a></code>
 
+## SSHKeys
+
+Response Types:
+
+- <a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix">gocloudcix</a>.<a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix#SSHKey">SSHKey</a>
+- <a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix">gocloudcix</a>.<a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix#SSHKeyResponse">SSHKeyResponse</a>
+- <a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix">gocloudcix</a>.<a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix#ComputeSSHKeyListResponse">ComputeSSHKeyListResponse</a>
+
+Methods:
+
+- <code title="post /compute/ssh_keys/">client.Compute.SSHKeys.<a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix#ComputeSSHKeyService.New">New</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>) (\*<a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix">gocloudcix</a>.<a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix#SSHKey">SSHKey</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
+- <code title="get /compute/ssh_keys/{id}/">client.Compute.SSHKeys.<a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix#ComputeSSHKeyService.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, id <a href="https://pkg.go.dev/builtin#int64">int64</a>) (\*<a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix">gocloudcix</a>.<a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix#SSHKey">SSHKey</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
+- <code title="get /compute/ssh_keys/">client.Compute.SSHKeys.<a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix#ComputeSSHKeyService.List">List</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, query <a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix">gocloudcix</a>.<a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix#ComputeSSHKeyListParams">ComputeSSHKeyListParams</a>) (\*<a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix">gocloudcix</a>.<a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix#ComputeSSHKeyListResponse">ComputeSSHKeyListResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
+- <code title="delete /compute/ssh_keys/{id}/">client.Compute.SSHKeys.<a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix#ComputeSSHKeyService.Delete">Delete</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, id <a href="https://pkg.go.dev/builtin#int64">int64</a>) <a href="https://pkg.go.dev/builtin#error">error</a></code>
+
 # Network
 
 ## Firewalls
