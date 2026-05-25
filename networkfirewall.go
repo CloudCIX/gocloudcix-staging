@@ -393,7 +393,7 @@ type NetworkFirewallUpdateRuleParam struct {
 	//   - `Private`: Represents connections between the CloudCIX Project networks.
 	//   - `VPNS2S`: Represents connections between the CloudCIX Project Networks and the
 	//     Customers' on-premises network.
-	Zone any `json:"zone,omitzero"`
+	Zone param.Opt[string] `json:"zone,omitzero"`
 	paramObj
 }
 
@@ -530,7 +530,7 @@ type NetworkFirewallNewParamsRule struct {
 	//   - `Private`: Represents connections between the CloudCIX Project networks.
 	//   - `VPNS2S`: Represents connections between the CloudCIX Project Networks and the
 	//     Customers' on-premises network.
-	Zone any `json:"zone,omitzero"`
+	Zone param.Opt[string] `json:"zone,omitzero"`
 	paramObj
 }
 
