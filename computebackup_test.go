@@ -110,15 +110,11 @@ func TestComputeBackupListWithOptionalParams(t *testing.T) {
 		option.WithAPIKey("My API Key"),
 	)
 	_, err := client.Compute.Backups.List(context.TODO(), gocloudcix.ComputeBackupListParams{
-		Exclude: map[string]any{
-			"foo": "bar",
-		},
-		Limit: gocloudcix.Int(0),
-		Order: gocloudcix.String("order"),
-		Page:  gocloudcix.Int(0),
-		Search: map[string]any{
-			"foo": "bar",
-		},
+		Exclude: map[string]any{},
+		Limit:   gocloudcix.Int(0),
+		Order:   gocloudcix.String("order"),
+		Page:    gocloudcix.Int(0),
+		Search:  map[string]any{},
 	})
 	if err != nil {
 		var apierr *gocloudcix.Error
