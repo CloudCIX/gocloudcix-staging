@@ -29,12 +29,12 @@ func TestStorageVolumeNewWithOptionalParams(t *testing.T) {
 	_, err := client.Storage.Volumes.New(context.TODO(), gocloudcix.StorageVolumeNewParams{
 		ProjectID: 1,
 		Specs: []gocloudcix.StorageVolumeNewParamsSpec{{
-			Quantity: gocloudcix.Int(250),
-			SKUName:  gocloudcix.String("SSD_001"),
+			Quantity: gocloudcix.Int(500),
+			SKUName:  gocloudcix.String("CEPH_001"),
 		}},
-		InstanceID: gocloudcix.Int(456),
-		Name:       gocloudcix.String("additional-storage"),
-		Type:       gocloudcix.String("hyperv"),
+		InstanceID: gocloudcix.Int(0),
+		Name:       gocloudcix.String("shared-data-volume"),
+		Type:       gocloudcix.String("cephfs"),
 	})
 	if err != nil {
 		var apierr *gocloudcix.Error
@@ -123,15 +123,11 @@ func TestStorageVolumeListWithOptionalParams(t *testing.T) {
 		option.WithAPIKey("My API Key"),
 	)
 	_, err := client.Storage.Volumes.List(context.TODO(), gocloudcix.StorageVolumeListParams{
-		Exclude: map[string]any{
-			"foo": "bar",
-		},
-		Limit: gocloudcix.Int(0),
-		Order: gocloudcix.String("order"),
-		Page:  gocloudcix.Int(0),
-		Search: map[string]any{
-			"foo": "bar",
-		},
+		Exclude: map[string]any{},
+		Limit:   gocloudcix.Int(0),
+		Order:   gocloudcix.String("order"),
+		Page:    gocloudcix.Int(0),
+		Search:  map[string]any{},
 	})
 	if err != nil {
 		var apierr *gocloudcix.Error

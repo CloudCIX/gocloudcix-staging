@@ -393,7 +393,7 @@ type NetworkFirewallUpdateRuleParam struct {
 	//   - `Private`: Represents connections between the CloudCIX Project networks.
 	//   - `VPNS2S`: Represents connections between the CloudCIX Project Networks and the
 	//     Customers' on-premises network.
-	Zone param.Opt[string] `json:"zone,omitzero"`
+	Zone any `json:"zone,omitzero"`
 	paramObj
 }
 
@@ -530,7 +530,7 @@ type NetworkFirewallNewParamsRule struct {
 	//   - `Private`: Represents connections between the CloudCIX Project networks.
 	//   - `VPNS2S`: Represents connections between the CloudCIX Project Networks and the
 	//     Customers' on-premises network.
-	Zone param.Opt[string] `json:"zone,omitzero"`
+	Zone any `json:"zone,omitzero"`
 	paramObj
 }
 
@@ -564,10 +564,10 @@ type NetworkFirewallListParams struct {
 	Page param.Opt[int64] `query:"page,omitzero" json:"-"`
 	// Filter the result to objects that do not match the specified filters. Possible
 	// filters are outlined in the individual list method descriptions.
-	Exclude map[string]any `query:"exclude,omitzero" json:"-"`
+	Exclude any `query:"exclude,omitzero" json:"-"`
 	// Filter the result to objects that match the specified filters. Possible filters
 	// are outlined in the individual list method descriptions.
-	Search map[string]any `query:"search,omitzero" json:"-"`
+	Search any `query:"search,omitzero" json:"-"`
 	paramObj
 }
 

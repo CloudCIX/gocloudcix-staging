@@ -37,7 +37,7 @@ func TestNetworkFirewallNewWithOptionalParams(t *testing.T) {
 			Port:        gocloudcix.String("port"),
 			Protocol:    gocloudcix.String("protocol"),
 			Source:      gocloudcix.String("source"),
-			Zone:        gocloudcix.String("zone"),
+			Zone:        map[string]any{},
 		}},
 		Type: gocloudcix.String("geo"),
 	})
@@ -101,7 +101,7 @@ func TestNetworkFirewallUpdateWithOptionalParams(t *testing.T) {
 					Port:        gocloudcix.String("port"),
 					Protocol:    gocloudcix.String("protocol"),
 					Source:      gocloudcix.String("source"),
-					Zone:        gocloudcix.String("zone"),
+					Zone:        map[string]any{},
 				}},
 			},
 		},
@@ -129,15 +129,11 @@ func TestNetworkFirewallListWithOptionalParams(t *testing.T) {
 		option.WithAPIKey("My API Key"),
 	)
 	_, err := client.Network.Firewalls.List(context.TODO(), gocloudcix.NetworkFirewallListParams{
-		Exclude: map[string]any{
-			"foo": "bar",
-		},
-		Limit: gocloudcix.Int(0),
-		Order: gocloudcix.String("order"),
-		Page:  gocloudcix.Int(0),
-		Search: map[string]any{
-			"foo": "bar",
-		},
+		Exclude: map[string]any{},
+		Limit:   gocloudcix.Int(0),
+		Order:   gocloudcix.String("order"),
+		Page:    gocloudcix.Int(0),
+		Search:  map[string]any{},
 	})
 	if err != nil {
 		var apierr *gocloudcix.Error
