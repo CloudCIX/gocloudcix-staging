@@ -602,6 +602,13 @@ type ComputeInstanceNewParamsMetadata struct {
 	// ssh_pwauth: true
 	// ```
 	Userdata param.Opt[string] `json:"userdata,omitzero"`
+	// Optional. A list of SSH key names (previously registered via POST
+	// /compute/ssh_keys/) to inject into the instance during provisioning. The public
+	// keys are appended to `ssh_authorized_keys` for the first sudo user defined in
+	// the cloud-init userdata. If no sudo user exists, an `administrator` user is
+	// created automatically. Only supported for LXD instances with #cloud-config
+	// userdata.
+	SSHKeyNames []string `json:"ssh_key_names,omitzero"`
 	paramObj
 }
 

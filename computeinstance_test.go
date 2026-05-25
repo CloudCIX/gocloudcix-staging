@@ -30,6 +30,7 @@ func TestComputeInstanceNewWithOptionalParams(t *testing.T) {
 		Metadata: gocloudcix.ComputeInstanceNewParamsMetadata{
 			DNS:          gocloudcix.String("dns"),
 			InstanceType: gocloudcix.String("instance_type"),
+			SSHKeyNames:  []string{"string"},
 			Userdata:     gocloudcix.String("userdata"),
 		},
 		ProjectID: 1,
