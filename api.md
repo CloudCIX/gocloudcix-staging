@@ -147,6 +147,7 @@ Response Types:
 - <a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix">gocloudcix</a>.<a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix#BaseIPAddress">BaseIPAddress</a>
 - <a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix">gocloudcix</a>.<a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix#NetworkRouter">NetworkRouter</a>
 - <a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix">gocloudcix</a>.<a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix#NetworkRouterResponse">NetworkRouterResponse</a>
+- <a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix">gocloudcix</a>.<a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix#RouterMetadata">RouterMetadata</a>
 - <a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix">gocloudcix</a>.<a href="https://pkg.go.dev/github.com/CloudCIX/gocloudcix#NetworkRouterListResponse">NetworkRouterListResponse</a>
 
 Methods:
