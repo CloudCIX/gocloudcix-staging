@@ -52,11 +52,11 @@ func NewComputeSSHKeyService(opts ...option.RequestOption) (r ComputeSSHKeyServi
 // Create a new SSH Key. If no `public_key` is provided, an Ed25519 key pair is
 // generated automatically. The `private_key` is returned **once** in this response
 // and is never stored — save it immediately.
-func (r *ComputeSSHKeyService) New(ctx context.Context, opts ...option.RequestOption) (res *SSHKey, err error) {
+func (r *ComputeSSHKeyService) New(ctx context.Context, body ComputeSSHKeyNewParams, opts ...option.RequestOption) (res *SSHKey, err error) {
 	var env SSHKeyResponse
 	opts = slices.Concat(r.Options, opts)
 	path := "compute/ssh_keys/"
-	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, nil, &env, opts...)
+	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, body, &env, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -166,6 +166,18 @@ type ComputeSSHKeyListResponse struct {
 // Returns the unmodified JSON received from the API
 func (r ComputeSSHKeyListResponse) RawJSON() string { return r.JSON.raw }
 func (r *ComputeSSHKeyListResponse) UnmarshalJSON(data []byte) error {
+	return apijson.UnmarshalRoot(data, r)
+}
+
+type ComputeSSHKeyNewParams struct {
+	paramObj
+}
+
+func (r ComputeSSHKeyNewParams) MarshalJSON() (data []byte, err error) {
+	type shadow ComputeSSHKeyNewParams
+	return param.MarshalObject(r, (*shadow)(&r))
+}
+func (r *ComputeSSHKeyNewParams) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
 
