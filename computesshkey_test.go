@@ -13,7 +13,7 @@ import (
 	"github.com/CloudCIX/gocloudcix/option"
 )
 
-func TestComputeSSHKeyNew(t *testing.T) {
+func TestComputeSSHKeyNewWithOptionalParams(t *testing.T) {
 	t.Skip("Mock server tests are disabled")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
@@ -26,7 +26,10 @@ func TestComputeSSHKeyNew(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Compute.SSHKeys.New(context.TODO(), gocloudcix.ComputeSSHKeyNewParams{})
+	_, err := client.Compute.SSHKeys.New(context.TODO(), gocloudcix.ComputeSSHKeyNewParams{
+		Name:      "my-laptop-key",
+		PublicKey: gocloudcix.String("ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINjHZddfHd1Y2rXPzX7XuJz0tVJ7m1E+71FbhJ8H29BJ"),
+	})
 	if err != nil {
 		var apierr *gocloudcix.Error
 		if errors.As(err, &apierr) {
