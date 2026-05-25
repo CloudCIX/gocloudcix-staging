@@ -170,6 +170,12 @@ func (r *ComputeSSHKeyListResponse) UnmarshalJSON(data []byte) error {
 }
 
 type ComputeSSHKeyNewParams struct {
+	// A unique, user-friendly name for the SSH Key. Maximum 50 characters.
+	Name string `json:"name" api:"required"`
+	// Optional. The SSH public key to store. Must begin with a recognised key-type
+	// prefix (e.g. ssh-ed25519, ssh-rsa). If omitted, an Ed25519 key pair is generated
+	// automatically and the private key is returned once in the create response.
+	PublicKey param.Opt[string] `json:"public_key,omitzero"`
 	paramObj
 }
 
