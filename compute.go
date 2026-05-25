@@ -111,6 +111,19 @@ type ComputeService struct {
 	// Each snapshot includes its associated instance, project, creation timestamp, and
 	// current state.
 	Snapshots ComputeSnapshotService
+	// Management of SSH Key records.
+	//
+	// This module provides API endpoints for managing SSH Key pairs used when
+	// provisioning compute instances. SSH Keys are stored in the Membership service
+	// and proxied through here.
+	//
+	// Available operations:
+	//
+	// - List SSH Keys belonging to the requesting User's Address
+	// - Create a new SSH Key (optionally auto-generate an Ed25519 key pair)
+	// - Read a single SSH Key record
+	// - Delete an SSH Key record
+	SSHKeys ComputeSSHKeyService
 }
 
 // NewComputeService generates a new service that applies the given options to each
@@ -124,5 +137,6 @@ func NewComputeService(opts ...option.RequestOption) (r ComputeService) {
 	r.Images = NewComputeImageService(opts...)
 	r.Instances = NewComputeInstanceService(opts...)
 	r.Snapshots = NewComputeSnapshotService(opts...)
+	r.SSHKeys = NewComputeSSHKeyService(opts...)
 	return
 }
