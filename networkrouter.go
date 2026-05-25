@@ -253,8 +253,8 @@ type NetworkRouter struct {
 	Created string `json:"created" api:"required"`
 	// Number of days after a user sets the state of the Router to Scrub (8) before it
 	// is executed by robot. The default value is 7 days for a Router.
-	GracePeriod int64                 `json:"grace_period" api:"required"`
-	Metadata    NetworkRouterMetadata `json:"metadata" api:"required"`
+	GracePeriod int64          `json:"grace_period" api:"required"`
+	Metadata    RouterMetadata `json:"metadata" api:"required"`
 	// The user-friendly name given to this Router Resource instance
 	Name string `json:"name" api:"required"`
 	// An array of the list of networks defined on the Router
@@ -294,30 +294,6 @@ type NetworkRouter struct {
 // Returns the unmodified JSON received from the API
 func (r NetworkRouter) RawJSON() string { return r.JSON.raw }
 func (r *NetworkRouter) UnmarshalJSON(data []byte) error {
-	return apijson.UnmarshalRoot(data, r)
-}
-
-type NetworkRouterMetadata struct {
-	Ipv4Address BaseIPAddress `json:"ipv4_address" api:"required"`
-	// The ID of the assigned public IPv4 address for the Router.
-	Ipv4AddressID int64         `json:"ipv4_address_id" api:"required"`
-	Ipv6Address   BaseIPAddress `json:"ipv6_address" api:"required"`
-	// The ID of the assigned public IPv6 address for the Router.
-	Ipv6AddressID int64 `json:"ipv6_address_id" api:"required"`
-	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
-	JSON struct {
-		Ipv4Address   respjson.Field
-		Ipv4AddressID respjson.Field
-		Ipv6Address   respjson.Field
-		Ipv6AddressID respjson.Field
-		ExtraFields   map[string]respjson.Field
-		raw           string
-	} `json:"-"`
-}
-
-// Returns the unmodified JSON received from the API
-func (r NetworkRouterMetadata) RawJSON() string { return r.JSON.raw }
-func (r *NetworkRouterMetadata) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
 
@@ -457,6 +433,30 @@ func (r NetworkRouterUpdateNetworkParam) MarshalJSON() (data []byte, err error) 
 	return param.MarshalObject(r, (*shadow)(&r))
 }
 func (r *NetworkRouterUpdateNetworkParam) UnmarshalJSON(data []byte) error {
+	return apijson.UnmarshalRoot(data, r)
+}
+
+type RouterMetadata struct {
+	Ipv4Address BaseIPAddress `json:"ipv4_address" api:"required"`
+	// The ID of the assigned public IPv4 address for the Router.
+	Ipv4AddressID int64         `json:"ipv4_address_id" api:"required"`
+	Ipv6Address   BaseIPAddress `json:"ipv6_address" api:"required"`
+	// The ID of the assigned public IPv6 address for the Router.
+	Ipv6AddressID int64 `json:"ipv6_address_id" api:"required"`
+	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
+	JSON struct {
+		Ipv4Address   respjson.Field
+		Ipv4AddressID respjson.Field
+		Ipv6Address   respjson.Field
+		Ipv6AddressID respjson.Field
+		ExtraFields   map[string]respjson.Field
+		raw           string
+	} `json:"-"`
+}
+
+// Returns the unmodified JSON received from the API
+func (r RouterMetadata) RawJSON() string { return r.JSON.raw }
+func (r *RouterMetadata) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
 
