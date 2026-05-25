@@ -37,7 +37,7 @@ func TestNetworkFirewallNewWithOptionalParams(t *testing.T) {
 			Port:        gocloudcix.String("port"),
 			Protocol:    gocloudcix.String("protocol"),
 			Source:      gocloudcix.String("source"),
-			Zone:        map[string]any{},
+			Zone:        gocloudcix.String("zone"),
 		}},
 		Type: gocloudcix.String("geo"),
 	})
@@ -101,7 +101,7 @@ func TestNetworkFirewallUpdateWithOptionalParams(t *testing.T) {
 					Port:        gocloudcix.String("port"),
 					Protocol:    gocloudcix.String("protocol"),
 					Source:      gocloudcix.String("source"),
-					Zone:        map[string]any{},
+					Zone:        gocloudcix.String("zone"),
 				}},
 			},
 		},
