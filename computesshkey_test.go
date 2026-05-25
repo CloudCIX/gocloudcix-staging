@@ -26,7 +26,7 @@ func TestComputeSSHKeyNew(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Compute.SSHKeys.New(context.TODO())
+	_, err := client.Compute.SSHKeys.New(context.TODO(), gocloudcix.ComputeSSHKeyNewParams{})
 	if err != nil {
 		var apierr *gocloudcix.Error
 		if errors.As(err, &apierr) {
