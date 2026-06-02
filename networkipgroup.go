@@ -27,15 +27,21 @@ import (
 //
 //   - Used for geo-filtering based on country IP ranges (e.g., 'Ireland', 'USA',
 //     'China')
+//
 //   - Essential for creating geo firewalls that block/allow traffic from specific
 //     countries
+//
 //   - To list country groups: GET /ip_address_groups?search[member_id]=0
+//
 //   - Referenced in geo firewall rules by numeric ID: "ip_address_group_id": 123
 //
 //   - Project Groups (type="project"): Created and managed by individual members for
 //     their own use
+//
 //   - Used for project firewalls with fine-grained access control
+//
 //   - Examples: office networks, VPN endpoints, admin workstations
+//
 //   - Referenced in project firewall rules using @groupname syntax: "source":
 //     "@office_networks"
 //
