@@ -189,7 +189,7 @@ func (r *NetworkRouterService) Delete(ctx context.Context, id int64, opts ...opt
 type BaseIPAddress struct {
 	// The ID of the IPAddress record.
 	ID int64 `json:"id" api:"required"`
-	// The IP address of the IPAddress record.
+	// The IPv4 address of the IPAddress record.
 	Address string `json:"address" api:"required"`
 	// Timestamp, in ISO format, of when the IPAddress record was created.
 	Created string `json:"created" api:"required"`
