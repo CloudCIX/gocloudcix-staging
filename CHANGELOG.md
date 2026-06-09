@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.20.1](https://github.com/CloudCIX/gocloudcix/compare/v0.20.0...v0.20.1) (2026-06-09)
+
+
+### Chores
+
+* refresh terraform custom-code tracking ([d6a9623](https://github.com/CloudCIX/gocloudcix/commit/d6a9623a1562c5ba77642513366b54bda1c7ce10))
+
 ## [0.20.0](https://github.com/CloudCIX/gocloudcix/compare/v0.19.4...v0.20.0) (2026-06-09)
 
 
