@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.20.0](https://github.com/CloudCIX/gocloudcix/compare/v0.19.4...v0.20.0) (2026-06-09)
+
+
+### Features
+
+* exercise stlc release flow ([4513198](https://github.com/CloudCIX/gocloudcix/commit/45131982ea8afd408bb33f7ebf2252feb281d39e))
+
 ## 0.19.0 (2026-05-25)
 
 Full Changelog: [v0.18.0...v0.19.0](https://github.com/CloudCIX/gocloudcix/compare/v0.18.0...v0.19.0)
