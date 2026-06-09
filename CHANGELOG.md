@@ -1,21 +1,5 @@
 # Changelog
 
-## 0.19.4 (2026-06-09)
-
-Full Changelog: [v0.19.3...v0.19.4](https://github.com/CloudCIX/gocloudcix/compare/v0.19.3...v0.19.4)
-
-## 0.19.3 (2026-06-09)
-
-Full Changelog: [v0.19.2...v0.19.3](https://github.com/CloudCIX/gocloudcix/compare/v0.19.2...v0.19.3)
-
-## 0.19.2 (2026-06-09)
-
-Full Changelog: [v0.19.1...v0.19.2](https://github.com/CloudCIX/gocloudcix/compare/v0.19.1...v0.19.2)
-
-## 0.19.1 (2026-06-09)
-
-Full Changelog: [v0.19.0...v0.19.1](https://github.com/CloudCIX/gocloudcix/compare/v0.19.0...v0.19.1)
-
 ## 0.19.0 (2026-05-25)
 
 Full Changelog: [v0.18.0...v0.19.0](https://github.com/CloudCIX/gocloudcix/compare/v0.18.0...v0.19.0)

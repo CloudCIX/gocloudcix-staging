@@ -9,7 +9,6 @@ permissions:
 
 jobs:
   promote:
-    if: github.repository == 'CloudCIX/gocloudcix-staging'
     runs-on: ubuntu-latest
     env:
       PRODUCTION_REPO: CloudCIX/gocloudcix
