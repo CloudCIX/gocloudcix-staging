@@ -163,7 +163,7 @@ type ComputeBackup struct {
 	Created string `json:"created" api:"required"`
 	// The Compute Instance the Compute Backup record is of.
 	Instance ComputeBackupInstance `json:"instance" api:"required"`
-	// The user-friendly name given to this Compute Backups instance
+	// The user-friendly display name given to this Compute Backups instance
 	Name string `json:"name" api:"required"`
 	// The id of the Project that this Compute Backups belongs to
 	ProjectID int64 `json:"project_id" api:"required"`
