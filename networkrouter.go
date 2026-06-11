@@ -193,7 +193,7 @@ type BaseIPAddress struct {
 	Address string `json:"address" api:"required"`
 	// Timestamp, in ISO format, of when the IPAddress record was created.
 	Created string `json:"created" api:"required"`
-	// A verbose name given to the IPAddress record.
+	// A human-readable name given to the IPAddress record.
 	Name string `json:"name" api:"required"`
 	// The note attached to IPAddress that made it.
 	Notes    string                `json:"notes" api:"required"`
